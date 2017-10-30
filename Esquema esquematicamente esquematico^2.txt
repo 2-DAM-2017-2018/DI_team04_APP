@@ -9,5 +9,3 @@ Añadir/quitar falta/retraso
 	insert fecha
 
 Visualizacion grafica/porcentaje faltas/retraso
-
-Pollas
