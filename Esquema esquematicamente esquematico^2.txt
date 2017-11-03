@@ -1,0 +1,11 @@
+Añadir/eliminar alumno
+	nombre
+	apellido
+	curso
+	faltas/retraso (array fechas)
+
+Añadir/quitar falta/retraso
+	selector alumno
+	insert fecha
+
+Visualizacion grafica/porcentaje faltas/retraso
