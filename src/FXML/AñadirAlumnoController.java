@@ -53,22 +53,16 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Sets the person to be edited in the dialog.
+     * Sets the alumn to be edited in the dialog.
      * 
-     * @param person
+     * @param alumn
      */
-    public void setPerson(Person person) {
-        this.person = person;
+    public void setPerson(Alumno alumn) {
+        this.alumn = alumn;
 
-        firstNameField.setText(person.getFirstName());
-        lastNameField.setText(person.getLastName());
-        streetField.setText(person.getStreet());
-        postalCodeField.setText(Integer.toString(person.getPostalCode()));
-        cityField.setText(person.getCity());
-        birthdayField.setText(DateUtil.format(person.getBirthday()));
-        birthdayField.setPromptText("dd.mm.yyyy");
-        teleField.setText(Integer.toString(person.getTelephone()));
-        emailField.setText(person.getEmail());
+        nombre.setText(alumn.getNombre());
+        apellidos.setText(alumn.getApellido());
+        curso.setText(alumn.getCurso());
     }
 
     /**
@@ -86,14 +80,9 @@ public class AñadirAlumnoController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            person.setFirstName(firstNameField.getText());
-            person.setLastName(lastNameField.getText());
-            person.setStreet(streetField.getText());
-            person.setPostalCode(Integer.parseInt(postalCodeField.getText()));
-            person.setCity(cityField.getText());
-            person.setBirthday(DateUtil.parse(birthdayField.getText()));
-            person.setTelephone(Integer.parseInt(teleField.getText()));
-            person.setEmail(emailField.getText());
+            alumn.setNombre(nombre.getText());
+            alumn.setApellido(apellidos.getText());
+            alumn.setCurso(curso.getText());
 
             okClicked = true;
             dialogStage.close();
@@ -116,59 +105,14 @@ public class AñadirAlumnoController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (firstNameField.getText() == null || firstNameField.getText().length() == 0) {
-            errorMessage += "No valid first name!\n"; 
+        if (nombre.getText() == null || nombre.getText().length() == 0) {
+            errorMessage += "¡Nombre invalido!\n"; 
         }
-        if (lastNameField.getText() == null || lastNameField.getText().length() == 0) {
-            errorMessage += "No valid last name!\n"; 
+        if (apellidos.getText() == null || apellidos.getText().length() == 0) {
+            errorMessage += "¡Apellidos invalidos!\n"; 
         }
-        if (streetField.getText() == null || streetField.getText().length() == 0) {
-            errorMessage += "No valid street!\n"; 
-        }
-
-        if (postalCodeField.getText() == null || postalCodeField.getText().length() == 0) {
-            errorMessage += "No valid postal code!\n"; 
-        } else {
-            // try to parse the postal code into an int.
-            try {
-                Integer.parseInt(postalCodeField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "No valid postal code (must be an integer)!\n"; 
-            }
-        }
-
-        if (cityField.getText() == null || cityField.getText().length() == 0) {
-            errorMessage += "No valid city!\n"; 
-        }
-
-        if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
-            errorMessage += "No valid birthday!\n";
-        } else {
-            if (!DateUtil.validDate(birthdayField.getText())) {
-                errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
-            }
-        }
-
-        if (teleField.getText() == null || teleField.getText().length() == 0) {
-            errorMessage += "Empty telephone!\n"; 
-        } else {
-            // try to parse the telephone into an int.
-            try {
-                Integer.parseInt(teleField.getText());
-            } catch (NumberFormatException e) {
-                errorMessage += "No valid telephone (must be an integer)!\n"; 
-            }
-        }
-        
-        if (emailField.getText() == null || emailField.getText().length() == 0) {
-            errorMessage += "Empty email!\n"; 
-        } else {
-            // check email validation
-            String email = emailField.getText();
-            Pattern pattern = Pattern.compile("^.+@.+\\..+$");
-            Matcher matcher = pattern.matcher(email);
-            if(!matcher.matches())
-                errorMessage += "No valid email!\n";
+        if (curso.getText() == null || curso.getText().length() == 0) {
+            errorMessage += "¡Curso invalido!\n"; 
         }
         
         if (errorMessage.length() == 0) {
@@ -177,8 +121,8 @@ public class AñadirAlumnoController {
             // Show the error message.
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
-            alert.setTitle("Invalid Fields");
-            alert.setHeaderText("Please correct invalid fields");
+            alert.setTitle("Campo(s) incorrecto(s)");
+            alert.setHeaderText("Por favor corrige los datos incorrectos");
             alert.setContentText(errorMessage);
 
             alert.showAndWait();
