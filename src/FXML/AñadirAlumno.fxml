@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.AñadirAlumno">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.AñadirAlumnoController">
    <children>
       <GridPane prefHeight="209.0" prefWidth="425.0">
         <columnConstraints>
@@ -22,9 +22,9 @@
             <Label text="Nombre" />
             <Label text="Apellidos" GridPane.rowIndex="1" />
             <Label text="Curso" GridPane.rowIndex="2" />
-            <TextField fx:id="firstNameField" GridPane.columnIndex="1" />
-            <TextField fx:id="lastNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField fx:id="streetField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="nombre" GridPane.columnIndex="1" />
+            <TextField fx:id="apellidos" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="curso" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button layoutX="275.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
