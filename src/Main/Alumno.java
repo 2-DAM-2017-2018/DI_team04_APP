@@ -15,7 +15,7 @@ import javafx.beans.property.ObjectProperty;
  */
 public class Alumno {
 
-    private String nombre;
+    public String nombre;
     private String apellido;
     private String curso;
     private ArrayList<Faltas> faltas;
