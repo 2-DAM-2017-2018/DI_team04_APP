@@ -231,12 +231,11 @@ public class MainApp extends Application {
     */
    public void loadAlumnDataFromFile(File file) {
        try {
-           JAXBContext context = JAXBContext
-                   .newInstance(PersonListWrapper.class);
+           JAXBContext context = JAXBContext.newInstance(AlumnListWrapper.class);
            Unmarshaller um = context.createUnmarshaller();
 
            // Reading XML from the file and unmarshalling.
-           PersonListWrapper wrapper = (PersonListWrapper) um.unmarshal(file);
+           AlumnListWrapper wrapper = (AlumnListWrapper) um.unmarshal(file);
 
            alumnData.clear();
            alumnData.addAll(wrapper.getPersons());
@@ -260,12 +259,12 @@ public class MainApp extends Application {
     public void saveAlumnDataToFile(File file) {
         try {
             JAXBContext context = JAXBContext
-                    .newInstance(PersonListWrapper.class);
+                    .newInstance(AlumnListWrapper.class);
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
             // Wrapping our person data.
-            PersonListWrapper wrapper = new PersonListWrapper();
+            AlumnListWrapper wrapper = new AlumnListWrapper();
             wrapper.setPersons(alumnData);
 
             // Marshalling and saving XML to the file.

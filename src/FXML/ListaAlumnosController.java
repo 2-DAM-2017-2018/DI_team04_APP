@@ -6,6 +6,7 @@
 package FXML;
 
 import Main.Alumno;
+import Main.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -39,4 +40,14 @@ public class ListaAlumnosController {
    @FXML
    private Button Quitarretraso;
    
+   private MainApp mainApp;
+
+    /**
+     * Is called by the main application to give a reference back to itself.
+     * 
+     * @param mainApp
+     */
+    public void setMainApp(MainApp mainApp) {
+        this.mainApp = mainApp;
+    }
 }
