@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javax.swing.Action;
 
@@ -25,65 +26,73 @@ import javax.swing.Action;
  */
 public class ListaAlumnosController {
 
-   @FXML
-    private ListView<Alumno> lista;
-   
-   @FXML
+    @FXML
+    private TableView<Alumno> lista;
+
+    @FXML
+    private TableColumn nombre;
+    @FXML
+    private TableColumn apellidos;
+    @FXML
+    private TableColumn curso;
+
+    @FXML
     private TableView<Alumno> tablaAsistencia;
-   
-   @FXML
-   private Button AñadirFalta;
-   
-   @FXML
-   private Button BorrarFalta;
-   
-   @FXML
-   private Button Retraso;
-   
-   @FXML
-   private Button Quitarretraso;
-   
-   
-   ObservableList<Alumno> alumno;
-   
-   private int posicionAlumnoTabla;
-   
-   private int faltas;
-   private int retrasos;
-   
-   private MainApp mainApp;
+    @FXML
+    private TableColumn retrasos;
+    @FXML
+    private TableColumn faltas;
+
+    ObservableList<Alumno> alumno;
+
+    @FXML
+    private Button AñadirFalta;
+
+    @FXML
+    private Button BorrarFalta;
+
+    @FXML
+    private Button Retraso;
+
+    @FXML
+    private Button Quitarretraso;
+
+    private int posicionAlumnoTabla;
+
+    private int faltas2;
+    private int retrasos2;
+    private MainApp mainApp;
 
     /**
      * Is called by the main application to give a reference back to itself.
-     * 
+     *
      * @param mainApp
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
-            
+
     }
-    
+
     @FXML
-    private void añadirFalta(ActionEvent event)
-            
-           
-    {
+    private void añadirFalta(ActionEvent event) {
         
+        faltas2 = faltas2 + 1;
     }
-     @FXML
-    private void borrarFalta(ActionEvent event)
-    {
-        
+
+    @FXML
+    private void borrarFalta(ActionEvent event) {
+        faltas2 = faltas2 - 1;
     }
-     @FXML
-    private void añadirRetraso(ActionEvent event)
-    {
-        
+
+    @FXML
+    private void añadirRetraso(ActionEvent event) {
+        retrasos2 = retrasos2 + 1;
     }
-    
-     @FXML
-    private void borrarRetraso(ActionEvent event)
-    {
-        
+
+    @FXML
+    private void borrarRetraso(ActionEvent event) {
+       
+      retrasos2 = retrasos2 - 1;
     }
+
 }
