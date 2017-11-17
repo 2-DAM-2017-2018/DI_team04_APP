@@ -5,7 +5,6 @@
  */
 package Main;
 
-import Main.Alumno;
 //import FXML.makery.address.model.PersonListWrapper;
 import FXML.AñadirAlumnoController;
 import FXML.ListaAlumnosController;
@@ -88,8 +87,7 @@ public class MainApp extends Application {
         try {
              // Load root layout from fxml file.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class
-                    .getResource("FXML/AsistenciaRootLayout.fxml"));
+            loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AsistenciaRootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
             // Show the scene containing the root layout.
@@ -118,7 +116,7 @@ public class MainApp extends Application {
         try {
         // Load person overview.
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(MainApp.class.getResource("view/PersonOverview.fxml"));
+        loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/ListaAlumnos.fxml"));
         AnchorPane personOverview = (AnchorPane) loader.load();
 
         // Set person overview into the center of root layout.
@@ -145,12 +143,12 @@ public class MainApp extends Application {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(MainApp.class.getResource("view/PersonEditDialog.fxml"));
+            loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AñadirAlumno.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
             // Create the dialog Stage.
             Stage dialogStage = new Stage();
-            dialogStage.setTitle("Edit Person");
+            dialogStage.setTitle("Editar alumno");
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.initOwner(primaryStage);
             Scene scene = new Scene(page);
