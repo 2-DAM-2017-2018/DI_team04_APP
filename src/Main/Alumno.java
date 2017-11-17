@@ -8,6 +8,8 @@ package Main;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 /**
  *
@@ -15,79 +17,53 @@ import javafx.beans.property.ObjectProperty;
  */
 public class Alumno {
 
-    private String nombre;
-    private String apellido;
-    private String curso;
+    private final StringProperty nombre;
+    private final StringProperty apellido;
+    private final StringProperty curso;
     private ArrayList<Faltas> faltas;
 
-    public Alumno() {
-        this.nombre = "Ejemplo";
-        this.apellido = "Ejemplez";
-        this.curso = "1A";
-    }
-    
-    public Alumno(String nombre, String apellido, String Curso) {
-        
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.curso = curso;
-    }
-    
-    /**
-     * @return the nombre
-     */
-    public String getNombre() {
-        return nombre;
+    public Alumno(String  nombre, String apellido, String curso) {
+        this.nombre =new SimpleStringProperty (nombre);
+        this.apellido = new SimpleStringProperty (apellido);
+        this.curso = new SimpleStringProperty (curso);
     }
 
-    /**
-     * @param nombre the nombre to set
-     */
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
+  
 
-    /**
-     * @return the apellido
-     */
-    public String getApellido() {
-        return apellido;
-    }
+   
 
-    /**
-     * @param apellido the apellido to set
-     */
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
+  
 
-    /**
-     * @return the curso
-     */
-    public String getCurso() {
-        return curso;
-    }
+   
 
-    /**
-     * @param curso the curso to set
-     */
-    public void setCurso(String curso) {
-        this.curso = curso;
-    }
-
-    /**
-     * @return the faltas
-     */
-    public ArrayList getFaltas() {
+    public ArrayList<Faltas> getFaltas() {
         return faltas;
     }
 
-    /**
-     * @param faltas the faltas to set
-     */
-    public void setFaltas(ArrayList faltas) {
+    public void setFaltas(ArrayList<Faltas> faltas) {
         this.faltas = faltas;
     }
+
+    public String getNombre() {
+        return nombre.get();
+    }
+
+    public void setFirstName(String nombre) {
+        this.nombre.set(nombre);
+    }
+     public String getApellido() {
+        return apellido.get();
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido.set(apellido);
+    }
     
-    
+      public String getCurso() {
+        return curso.get();
+    }
+
+    public void setCurso(String curso) {
+        this.curso.set(curso);
+    }
 }
