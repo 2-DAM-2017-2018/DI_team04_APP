@@ -19,13 +19,6 @@
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Statistics">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleShowBirthdayStatistics" text="Show Statistics" />
-                  <MenuItem fx:id="stackedBarChart" mnemonicParsing="false" onAction="#handleBarchar" text="StackedBarChart" />
-                  <MenuItem fx:id="piechart" mnemonicParsing="false" onAction="#handlePieChart" text="PieChar" />
-            </items>
-          </Menu>
           <Menu mnemonicParsing="false" text="Help">
             <items>
               <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />

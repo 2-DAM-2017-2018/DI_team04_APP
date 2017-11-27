@@ -49,10 +49,10 @@ public class MainApp extends Application {
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
-        this.primaryStage.setTitle("AddressApp");
+        this.primaryStage.setTitle("Listado de alumnos");
         
         // set the application icon
-        this.primaryStage.getIcons().add(new Image("file:resources/images/MailIcon.png"));
+        /*this.primaryStage.getIcons().add(new Image("file:resources/images/MailIcon.png"));*/
 
         initRootLayout();
 
@@ -118,10 +118,10 @@ public class MainApp extends Application {
         // Load person overview.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/ListaAlumnos.fxml"));
-        AnchorPane personOverview = (AnchorPane) loader.load();
+        AnchorPane listaAlumnos = (AnchorPane) loader.load();
 
         // Set person overview into the center of root layout.
-        rootLayout.setCenter(personOverview);
+        rootLayout.setCenter(listaAlumnos);
 
         // Give the controller access to the main app.
         ListaAlumnosController controller = loader.getController();

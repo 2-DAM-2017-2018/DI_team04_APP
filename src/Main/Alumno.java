@@ -27,43 +27,49 @@ public class Alumno {
         this.apellido = new SimpleStringProperty (apellido);
         this.curso = new SimpleStringProperty (curso);
     }
-
-  
-
-   
-
-  
-
-   
-
+    
     public ArrayList<Faltas> getFaltas() {
         return faltas;
     }
 
-    public void setFaltas(ArrayList<Faltas> faltas) {
-        this.faltas = faltas;
+    public StringProperty getNombreProperty() {
+        return nombre;
+    }
+
+    public StringProperty getApellidoProperty() {
+        return apellido;
+    }
+
+    public StringProperty getCursoProperty() {
+        return curso;
     }
 
     public String getNombre() {
         return nombre.get();
     }
 
-    public void setFirstName(String nombre) {
-        this.nombre.set(nombre);
-    }
      public String getApellido() {
         return apellido.get();
     }
 
-    public void setApellido(String apellido) {
-        this.apellido.set(apellido);
-    }
-    
       public String getCurso() {
         return curso.get();
     }
 
+    public void setFaltas(ArrayList<Faltas> faltas) {
+        this.faltas = faltas;
+    }
+    
+    public void setFirstName(String nombre) {
+        this.nombre.set(nombre);
+    }
+    
+    public void setApellido(String apellido) {
+        this.apellido.set(apellido);
+    }
+    
     public void setCurso(String curso) {
         this.curso.set(curso);
     }
+    
 }

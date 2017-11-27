@@ -8,22 +8,34 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ListaAlumnosController">
    <children>
-      <TableView layoutX="236.0" layoutY="14.0" prefHeight="249.0" prefWidth="358.0">
-        <columns>
-          <TableColumn prefWidth="75.0" text="retrasos" />
-            <TableColumn prefWidth="75.0" text="faltas" />
-        </columns>
-      </TableView>
-      <Button layoutX="301.0" layoutY="295.0" mnemonicParsing="false" text="Añadir falta" />
-      <Button layoutX="399.0" layoutY="295.0" mnemonicParsing="false" text="Borrar falta" />
-      <Button layoutX="294.0" layoutY="346.0" mnemonicParsing="false" text="Añadir retraso" />
-      <Button layoutX="392.0" layoutY="346.0" mnemonicParsing="false" text="Quitar retraso" />
-      <TableView layoutX="5.0" layoutY="15.0" prefHeight="374.0" prefWidth="228.0">
-         <columns>
-            <TableColumn prefWidth="75.0" text="nombre" />
-            <TableColumn prefWidth="75.0" text="apellidos" />
-            <TableColumn prefWidth="75.0" text="curso" />
-         </columns>
-      </TableView>
+      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="279.0">
+               <children>
+                  <TableView fx:id="lista" prefHeight="398.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <columns>
+                        <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
+                        <TableColumn fx:id="apellidosC" prefWidth="75.0" text="Apellidos" />
+                        <TableColumn fx:id="cursoC" prefWidth="75.0" text="Curso" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="270.0">
+               <children>
+                  <TableView fx:id="lista2" prefHeight="313.0" prefWidth="296.0" AnchorPane.bottomAnchor="85.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <columns>
+                      <TableColumn fx:id="retrasos" prefWidth="75.0" text="Retrasos" />
+                      <TableColumn fx:id="faltas" prefWidth="75.0" text="Faltas" />
+                    </columns>
+                  </TableView>
+                  <Button alignment="CENTER" layoutX="151.0" layoutY="359.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Quitar retraso" />
+                  <Button alignment="CENTER" layoutX="54.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Añadir falta" />
+                  <Button alignment="CENTER" layoutX="151.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Borrar falta" />
+                  <Button alignment="CENTER" layoutX="54.0" layoutY="359.0" mnemonicParsing="false" text="Añadir retraso" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
    </children>
 </AnchorPane>
