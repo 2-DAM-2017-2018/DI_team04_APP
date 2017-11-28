@@ -14,6 +14,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
@@ -89,6 +90,31 @@ public class ListaAlumnosController {
         System.out.println(mainApp.getAlumnData().toString());
         lista.setItems(mainApp.getAlumnData());
     }
+    @FXML
+    private void handleNewAlumno() {
+        Alumno tempPerson = new Alumno();
+        boolean okClicked = mainApp.showAlumnEditDialog(tempPerson);
+        if (okClicked) {
+            mainApp.getAlumnData().add(tempPerson);
+        }
+    }
+    @FXML
+    private void handleDeleteAlumno() {
+        int selectedIndex = lista.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            lista.getItems().remove(selectedIndex);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No seleccionado");
+            alert.setHeaderText("Alumno no seleccionada");
+            alert.setContentText("Selecciona un alumno de la tabla");
+
+            alert.showAndWait();
+        }
+    }
+    
 /*
     @FXML
     private void añadirFalta(ActionEvent event) {
