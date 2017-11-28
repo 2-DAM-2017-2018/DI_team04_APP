@@ -8,11 +8,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ListaAlumnosController">
    <children>
-      <SplitPane dividerPositions="0.5, 0.5" prefHeight="400.0" prefWidth="600.0">
+      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="600.0">
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="279.0">
                <children>
-                  <TableView fx:id="lista" prefHeight="398.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TableView fx:id="lista" layoutX="-14.0" prefHeight="413.0" prefWidth="310.0" AnchorPane.bottomAnchor="-15.0" AnchorPane.leftAnchor="-14.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <columns>
                         <TableColumn fx:id="nombreC" prefWidth="75.0" text="Nombre" />
                         <TableColumn fx:id="apellidosC" prefWidth="75.0" text="Apellidos" />
@@ -33,9 +33,10 @@
                   <Button alignment="CENTER" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Añadir falta" />
                   <Button alignment="CENTER" layoutX="94.0" layoutY="325.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" text="Borrar falta" />
                   <Button alignment="CENTER" layoutX="9.0" layoutY="359.0" mnemonicParsing="false" text="Añadir retraso" />
+                  <Button layoutX="191.0" layoutY="359.0" mnemonicParsing="false" onAction="#handleNewAlumno" prefHeight="25.0" prefWidth="102.0" text="NuevoAlumno" />
+                  <Button layoutX="191.0" layoutY="325.0" mnemonicParsing="false" onAction="#handleDeleteAlumno" text="Borrar Alumno" />
                </children>
             </AnchorPane>
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" text="NuevoAlumno" />
         </items>
       </SplitPane>
    </children>
