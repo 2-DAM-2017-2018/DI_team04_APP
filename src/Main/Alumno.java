@@ -29,9 +29,9 @@ public class Alumno {
     }
 
     public Alumno() {
-    nombre=null;
-    apellido=null;
-    curso=null;
+        nombre=new SimpleStringProperty ("");
+        apellido=new SimpleStringProperty ("");
+        curso=new SimpleStringProperty ("");
     }
     
     public ArrayList<Faltas> getFaltas() {

@@ -92,7 +92,7 @@ public class ListaAlumnosController {
     }
     @FXML
     private void handleNewAlumno() {
-        Alumno tempPerson = new Alumno();
+        Alumno tempPerson = new Alumno("Nombre","Apellido","Curso");
         boolean okClicked = mainApp.showAlumnEditDialog(tempPerson);
         if (okClicked) {
             mainApp.getAlumnData().add(tempPerson);
