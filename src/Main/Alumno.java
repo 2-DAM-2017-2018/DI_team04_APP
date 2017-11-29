@@ -27,6 +27,12 @@ public class Alumno {
         this.apellido = new SimpleStringProperty (apellido);
         this.curso = new SimpleStringProperty (curso);
     }
+
+    public Alumno() {
+    nombre=null;
+    apellido=null;
+    curso=null;
+    }
     
     public ArrayList<Faltas> getFaltas() {
         return faltas;
