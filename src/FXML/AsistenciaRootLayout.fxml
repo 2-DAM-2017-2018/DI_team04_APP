@@ -10,18 +10,13 @@
    <top>
       <MenuBar BorderPane.alignment="CENTER">
         <menus>
-          <Menu mnemonicParsing="false" text="File">
+          <Menu mnemonicParsing="false" text="Archivo">
             <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open ..." />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save" />
-                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Save As " />
-                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-            </items>
-          </Menu>
-          <Menu mnemonicParsing="false" text="Help">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="About" />
+              <MenuItem mnemonicParsing="false" onAction="#handleNew" text="Nuevo" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Abrir ..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Guardar" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Guardar como......" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Salir" />
             </items>
           </Menu>
         </menus>
