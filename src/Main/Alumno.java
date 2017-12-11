@@ -8,6 +8,7 @@ package Main;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -20,18 +21,28 @@ public class Alumno {
     private final StringProperty nombre;
     private final StringProperty apellido;
     private final StringProperty curso;
-    private ArrayList<Faltas> faltas;
+    private final ArrayList<Faltas> faltas;
 
     public Alumno(String  nombre, String apellido, String curso) {
         this.nombre =new SimpleStringProperty (nombre);
         this.apellido = new SimpleStringProperty (apellido);
         this.curso = new SimpleStringProperty (curso);
+        this.faltas= new ArrayList();
+    }
+    public Alumno(String  nombre, String apellido, String curso, int anno, int mes, int dia) {
+        this.nombre =new SimpleStringProperty (nombre);
+        this.apellido = new SimpleStringProperty (apellido);
+        this.curso = new SimpleStringProperty (curso);
+        this.faltas= new ArrayList();
+        this.faltas.add(new Faltas(anno,mes,dia,true));
+        this.faltas.add(new Faltas(anno,mes,dia,false));
     }
 
     public Alumno() {
-        nombre=new SimpleStringProperty ("");
-        apellido=new SimpleStringProperty ("");
-        curso=new SimpleStringProperty ("");
+        this.nombre=new SimpleStringProperty ("");
+        this.apellido=new SimpleStringProperty ("");
+        this.curso=new SimpleStringProperty ("");
+        this.faltas= new ArrayList();
     }
     
     public ArrayList<Faltas> getFaltas() {
@@ -62,9 +73,9 @@ public class Alumno {
         return curso.get();
     }
 
-    public void setFaltas(ArrayList<Faltas> faltas) {
-        this.faltas = faltas;
-    }
+    /*public void setFaltas(int anno,int dia,int mes, boolean retraso) {
+        this.faltas.add(anno,dia,mes,retraso);
+    }*/
     
     public void setFirstName(String nombre) {
         this.nombre.set(nombre);

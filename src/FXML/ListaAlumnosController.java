@@ -7,6 +7,7 @@ package FXML;
 
 import Main.Alumno;
 import Main.MainApp;
+import Main.Faltas;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.Action;
+import Util.DateUtil;
 
 /**
  * FXML Controller class
@@ -31,8 +33,8 @@ public class ListaAlumnosController {
 
     @FXML
     private TableView<Alumno> lista;
-    /*@FXML
-    private TableView<Alumno> tablaAsistencia;*/
+    @FXML
+    private TableView<Faltas> tablaAsistencia;
     
 
     @FXML
@@ -41,11 +43,11 @@ public class ListaAlumnosController {
     private TableColumn<Alumno,String> apellidosC;
     @FXML
     private TableColumn<Alumno,String> cursoC;
-    /*@FXML
-    private TableColumn retrasos;
     @FXML
-    private TableColumn faltas;
-    
+    private TableColumn<Faltas,String> retrasos;
+    @FXML
+    private TableColumn<Faltas,String> faltas;
+    /*
     @FXML
     private Button AnnadirFalta;
 
@@ -66,16 +68,16 @@ public class ListaAlumnosController {
 
     @FXML
     private void initialize() {
-        // Initialize the person table with the two columns.
+        // Initialize the alumn table
         nombreC.setCellValueFactory(cellData -> cellData.getValue().getNombreProperty());
         apellidosC.setCellValueFactory(cellData -> cellData.getValue().getApellidoProperty());
-        cursoC.setCellValueFactory(cellData -> cellData.getValue().getCursoProperty());
-    
+        cursoC.setCellValueFactory(cellData -> cellData.getValue().getFaltas().get(0).getFechaProperty().asString());
         // Clear person details.
-        //showPersonDetails(null);
+        //showFaltas(null);
         lista.setItems(null);
         // Listen for selection changes and show the person details when changed.
-        //lista.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> showPersonDetails(newValue));
+        lista.getSelectionModel().selectedItemProperty().addListener(
+                (observable, oldValue, newValue) -> showFaltas(newValue));
 
     }
     /**
@@ -92,10 +94,10 @@ public class ListaAlumnosController {
     }
     @FXML
     private void handleNewAlumno() {
-        Alumno tempPerson = new Alumno("Nombre","Apellido","Curso");
-        boolean okClicked = mainApp.showAlumnEditDialog(tempPerson);
+        Alumno tempAlumn = new Alumno("Nombre","Apellido","Curso");
+        boolean okClicked = mainApp.showAlumnEditDialog(tempAlumn);
         if (okClicked) {
-            mainApp.getAlumnData().add(tempPerson);
+            mainApp.getAlumnData().add(tempAlumn);
         }
     }
     @FXML
@@ -139,4 +141,19 @@ public class ListaAlumnosController {
       
     }
  */
+
+    private void showFaltas(Alumno alumn) {
+        //ObservableList<Faltas> listaFaltas = FXCollections.observableArrayList(alumn.getFaltas());
+        //tablaAsistencia.setItems(listaFaltas);
+        faltas.setCellFactory(value);
+        if (alumn != null) {
+            //for(int i=0;i<alumn.getFaltas().size();i++){
+                //1faltas.setCellValueFactory(cellData -> cellData.getValue().getFaltas().get(0).getFechaProperty().asString());
+            //}
+        } else {
+            // Person is null, remove all the text.
+            retrasos.setCellValueFactory(null);
+            faltas.setCellValueFactory(null);
+        }
+    }
 }

@@ -4,37 +4,60 @@
  * and open the template in the editor.
  */
 package Main;
-
+import Util.DateUtil;
+import Util.LocalDateAdapter;
 import java.time.LocalDate;
+import javafx.beans.property.BooleanProperty;
+import static javafx.beans.property.BooleanProperty.booleanProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  *
  * @author ITP1DAM
  */
 public class Faltas {
-    private ObjectProperty<LocalDate> fecha;
-    private boolean retraso;
+    private final ObjectProperty<LocalDate> fecha;
+    private final BooleanProperty retraso;
+    private final StringProperty prueba;
 
-    public Faltas(ObjectProperty<LocalDate> fecha, boolean retraso) {
-        this.fecha = fecha;
-        this.retraso = retraso;
+    public Faltas(int anno,int dia,int mes, boolean retraso) {
+        this.fecha = new SimpleObjectProperty<LocalDate>(LocalDate.of(anno,dia,mes));
+        this.retraso = new SimpleBooleanProperty (retraso);
+        this.prueba = new SimpleStringProperty ("Prueba");
+    }
+
+    public StringProperty getPrueba() {
+        return prueba;
     }
     
-    public ObjectProperty<LocalDate> getFecha() {
+    @XmlJavaTypeAdapter(LocalDateAdapter.class)
+    public String getFecha() {
+        return DateUtil.format(fecha.get());
+    }
+    
+    public ObjectProperty<LocalDate> getFechaProperty(){
         return fecha;
     }
 
-    public void setFecha(ObjectProperty<LocalDate> fecha) {
-        this.fecha = fecha;
+    public void setFecha(LocalDate fecha) {
+        this.fecha.set(fecha);
     }
 
     public boolean isRetraso() {
+        return retraso.get();
+    }
+    
+    public BooleanProperty isRetrasoProperty() {
         return retraso;
     }
 
     public void setRetraso(boolean retraso) {
-        this.retraso = retraso;
+        this.retraso.set(retraso);
     }
     
     
