@@ -23,6 +23,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.Action;
 import Util.DateUtil;
+import javafx.beans.property.StringProperty;
 
 /**
  * FXML Controller class
@@ -71,7 +72,7 @@ public class ListaAlumnosController {
         // Initialize the alumn table
         nombreC.setCellValueFactory(cellData -> cellData.getValue().getNombreProperty());
         apellidosC.setCellValueFactory(cellData -> cellData.getValue().getApellidoProperty());
-        cursoC.setCellValueFactory(cellData -> cellData.getValue().getFaltas().get(0).getFechaProperty().asString());
+        cursoC.setCellValueFactory(cellData -> cellData.getValue().getCursoProperty());
         // Clear person details.
         //showFaltas(null);
         lista.setItems(null);
@@ -143,9 +144,17 @@ public class ListaAlumnosController {
  */
 
     private void showFaltas(Alumno alumn) {
-        //ObservableList<Faltas> listaFaltas = FXCollections.observableArrayList(alumn.getFaltas());
-        //tablaAsistencia.setItems(listaFaltas);
-        faltas.setCellFactory(value);
+        
+        ObservableList<Faltas> datos2 = FXCollections.observableArrayList();
+
+        for(int i=0;i<alumn.getFaltas().size();i++){
+            datos2.add(alumn.getFaltas().get(i));
+            faltas.setCellValueFactory(cellData -> alumn.getFaltas().get(0).getFechaProperty().asString());
+            //retrasos.setCellValueFactory(cellData -> new ObservableValue());
+        }
+        
+        tablaAsistencia.setItems(datos2);
+        
         if (alumn != null) {
             //for(int i=0;i<alumn.getFaltas().size();i++){
                 //1faltas.setCellValueFactory(cellData -> cellData.getValue().getFaltas().get(0).getFechaProperty().asString());

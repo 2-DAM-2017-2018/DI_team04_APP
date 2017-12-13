@@ -25,7 +25,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="296.0">
                      <children>
-                        <TableView fx:id="lista2" prefHeight="210.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <TableView fx:id="tablaAsistencia" prefHeight="210.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                            <columns>
                               <TableColumn fx:id="retrasos" prefWidth="75.0" text="Retrasos" />
                               <TableColumn fx:id="faltas" prefWidth="75.0" text="Faltas" />
