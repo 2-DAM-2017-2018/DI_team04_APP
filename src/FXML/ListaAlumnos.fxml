@@ -29,6 +29,7 @@
                            <columns>
                               <TableColumn fx:id="retrasos" prefWidth="75.0" text="Retrasos" />
                               <TableColumn fx:id="faltas" prefWidth="75.0" text="Faltas" />
+                              <TableColumn fx:id="hora" prefWidth="75.0" text="Hora" />
                            </columns>
                         </TableView>
                      </children>

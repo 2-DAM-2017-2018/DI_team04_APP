@@ -7,7 +7,9 @@ package Main;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -22,29 +24,34 @@ public class Alumno {
     private final StringProperty apellido;
     private final StringProperty curso;
     private final ArrayList<Faltas> faltas;
+    private final IntegerProperty hora;
 
-    public Alumno(String  nombre, String apellido, String curso) {
-        this.nombre =new SimpleStringProperty (nombre);
-        this.apellido = new SimpleStringProperty (apellido);
-        this.curso = new SimpleStringProperty (curso);
-        this.faltas= new ArrayList();
+    public Alumno(String nombre, String apellido, String curso, int hora) {
+        this.nombre = new SimpleStringProperty(nombre);
+        this.apellido = new SimpleStringProperty(apellido);
+        this.curso = new SimpleStringProperty(curso);
+        this.faltas = new ArrayList();
+        this.hora = new SimpleIntegerProperty(hora);
     }
-    public Alumno(String  nombre, String apellido, String curso, int anno, int mes, int dia) {
-        this.nombre =new SimpleStringProperty (nombre);
-        this.apellido = new SimpleStringProperty (apellido);
-        this.curso = new SimpleStringProperty (curso);
-        this.faltas= new ArrayList();
-        this.faltas.add(new Faltas(anno,mes,dia,true));
-        this.faltas.add(new Faltas(anno,mes,dia,false));
+
+    public Alumno(String nombre, String apellido, String curso, int anno, int mes, int dia, int hora) {
+        this.nombre = new SimpleStringProperty(nombre);
+        this.apellido = new SimpleStringProperty(apellido);
+        this.curso = new SimpleStringProperty(curso);
+        this.faltas = new ArrayList();
+        this.faltas.add(new Faltas(anno, mes, dia, true));
+        this.faltas.add(new Faltas(anno, mes, dia, false));
+        this.hora = new SimpleIntegerProperty(hora);
     }
 
     public Alumno() {
-        this.nombre=new SimpleStringProperty ("");
-        this.apellido=new SimpleStringProperty ("");
-        this.curso=new SimpleStringProperty ("");
-        this.faltas= new ArrayList();
+        this.nombre = new SimpleStringProperty("");
+        this.apellido = new SimpleStringProperty("");
+        this.curso = new SimpleStringProperty("");
+        this.faltas = new ArrayList();
+        this.hora = new SimpleIntegerProperty(0);
     }
-    
+
     public ArrayList<Faltas> getFaltas() {
         return faltas;
     }
@@ -65,28 +72,35 @@ public class Alumno {
         return nombre.get();
     }
 
-     public String getApellido() {
+    public String getApellido() {
         return apellido.get();
     }
 
-      public String getCurso() {
+    public String getCurso() {
         return curso.get();
+    }
+
+    public IntegerProperty getHora() {
+        return hora;
     }
 
     /*public void setFaltas(int anno,int dia,int mes, boolean retraso) {
         this.faltas.add(anno,dia,mes,retraso);
     }*/
-    
     public void setFirstName(String nombre) {
         this.nombre.set(nombre);
     }
-    
+
     public void setApellido(String apellido) {
         this.apellido.set(apellido);
     }
-    
+
     public void setCurso(String curso) {
         this.curso.set(curso);
     }
-    
+
+    public void setHora(int hora) {
+        this.hora.set(hora);
+    }
+
 }

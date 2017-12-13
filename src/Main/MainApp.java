@@ -64,14 +64,14 @@ public class MainApp extends Application {
      */
     public MainApp() {
         //Add some sample data
-       alumnData.add(new Alumno("Hans", "Muster", "1A",2016,11,11));
-       alumnData.add(new Alumno("Ruth", "Mueller", "1A",2016,12,11));
-       alumnData.add(new Alumno("Heinz", "Kurz", "1B",2016,1,11));
-       alumnData.add(new Alumno("Cornelia", "Meier", "1B",2016,3,11));
-       alumnData.add(new Alumno("Werner", "Meyer", "2A",2016,6,11));
-       alumnData.add(new Alumno("Lydia", "Kunz", "2A",2016,8,11));
-       alumnData.add(new Alumno("Anna", "Best", "2B",2016,5,11));
-       alumnData.add(new Alumno("Stefan", "Meier", "2B",2016,11,11));
+       alumnData.add(new Alumno("Hans", "Muster", "1A",2016,11,11,2));
+       alumnData.add(new Alumno("Ruth", "Mueller", "1A",2016,12,11,3));
+       alumnData.add(new Alumno("Heinz", "Kurz", "1B",2016,1,11,4));
+       alumnData.add(new Alumno("Cornelia", "Meier", "1B",2016,3,11,5));
+       alumnData.add(new Alumno("Werner", "Meyer", "2A",2016,6,11,6));
+       alumnData.add(new Alumno("Lydia", "Kunz", "2A",2016,8,11,7));
+       alumnData.add(new Alumno("Anna", "Best", "2B",2016,5,11,8));
+       alumnData.add(new Alumno("Stefan", "Meier", "2B",2016,11,11,9));
     }
 
     /**

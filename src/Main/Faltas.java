@@ -9,8 +9,10 @@ import Util.LocalDateAdapter;
 import java.time.LocalDate;
 import javafx.beans.property.BooleanProperty;
 import static javafx.beans.property.BooleanProperty.booleanProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -24,11 +26,13 @@ public class Faltas {
     private final ObjectProperty<LocalDate> fecha;
     private final BooleanProperty retraso;
     private final StringProperty prueba;
+    private final IntegerProperty hora;
 
     public Faltas(int anno,int dia,int mes, boolean retraso) {
         this.fecha = new SimpleObjectProperty<LocalDate>(LocalDate.of(anno,dia,mes));
         this.retraso = new SimpleBooleanProperty (retraso);
         this.prueba = new SimpleStringProperty ("Prueba");
+        this.hora= new SimpleIntegerProperty();
     }
 
     public StringProperty getPrueba() {
