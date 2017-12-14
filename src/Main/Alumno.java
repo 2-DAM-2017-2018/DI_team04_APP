@@ -24,14 +24,12 @@ public class Alumno {
     private final StringProperty apellido;
     private final StringProperty curso;
     private final ArrayList<Faltas> faltas;
-    private final IntegerProperty hora;
 
-    public Alumno(String nombre, String apellido, String curso, int hora) {
+    public Alumno(String nombre, String apellido, String curso) {
         this.nombre = new SimpleStringProperty(nombre);
         this.apellido = new SimpleStringProperty(apellido);
         this.curso = new SimpleStringProperty(curso);
         this.faltas = new ArrayList();
-        this.hora = new SimpleIntegerProperty(hora);
     }
 
     public Alumno(String nombre, String apellido, String curso, int anno, int mes, int dia, int hora) {
@@ -39,9 +37,8 @@ public class Alumno {
         this.apellido = new SimpleStringProperty(apellido);
         this.curso = new SimpleStringProperty(curso);
         this.faltas = new ArrayList();
-        this.faltas.add(new Faltas(anno, mes, dia, true));
-        this.faltas.add(new Faltas(anno, mes, dia, false));
-        this.hora = new SimpleIntegerProperty(hora);
+        this.faltas.add(new Faltas(anno, mes, dia, true, hora));
+        this.faltas.add(new Faltas(anno, mes, dia+1, false, hora));
     }
 
     public Alumno() {
@@ -49,7 +46,6 @@ public class Alumno {
         this.apellido = new SimpleStringProperty("");
         this.curso = new SimpleStringProperty("");
         this.faltas = new ArrayList();
-        this.hora = new SimpleIntegerProperty(0);
     }
 
     public ArrayList<Faltas> getFaltas() {
@@ -80,10 +76,6 @@ public class Alumno {
         return curso.get();
     }
 
-    public IntegerProperty getHora() {
-        return hora;
-    }
-
     /*public void setFaltas(int anno,int dia,int mes, boolean retraso) {
         this.faltas.add(anno,dia,mes,retraso);
     }*/
@@ -97,10 +89,6 @@ public class Alumno {
 
     public void setCurso(String curso) {
         this.curso.set(curso);
-    }
-
-    public void setHora(int hora) {
-        this.hora.set(hora);
     }
 
 }

@@ -47,7 +47,9 @@ public class ListaAlumnosController {
     @FXML
     private TableColumn<Faltas,String> retrasos;
     @FXML
-    private TableColumn<Faltas,String> faltas;
+    private TableColumn<Faltas,String> fechafalta;
+    @FXML
+    private TableColumn<Faltas,String> hora;
     /*
     @FXML
     private Button AnnadirFalta;
@@ -95,7 +97,7 @@ public class ListaAlumnosController {
     }
     @FXML
     private void handleNewAlumno() {
-        Alumno tempAlumn = new Alumno("Nombre","Apellido","Curso",0);
+        Alumno tempAlumn = new Alumno("Nombre","Apellido","Curso");
         boolean okClicked = mainApp.showAlumnEditDialog(tempAlumn);
         if (okClicked) {
             mainApp.getAlumnData().add(tempAlumn);
@@ -149,20 +151,18 @@ public class ListaAlumnosController {
 
         for(int i=0;i<alumn.getFaltas().size();i++){
             datos2.add(alumn.getFaltas().get(i));
-            faltas.setCellValueFactory(cellData -> alumn.getFaltas().get(0).getFechaProperty().asString());
-            //retrasos.setCellValueFactory(cellData -> new ObservableValue());
         }
         
         tablaAsistencia.setItems(datos2);
         
         if (alumn != null) {
-            //for(int i=0;i<alumn.getFaltas().size();i++){
-                //1faltas.setCellValueFactory(cellData -> cellData.getValue().getFaltas().get(0).getFechaProperty().asString());
-            //}
+            fechafalta.setCellValueFactory(cellData -> cellData.getValue().getFechaProperty().asString());
+            retrasos.setCellValueFactory(cellData -> cellData.getValue().isRetrasoProperty().asString());
+            hora.setCellValueFactory(cellData -> cellData.getValue().getHoraProperty().asString());
         } else {
             // Person is null, remove all the text.
             retrasos.setCellValueFactory(null);
-            faltas.setCellValueFactory(null);
+            fechafalta.setCellValueFactory(null);
         }
     }
 }

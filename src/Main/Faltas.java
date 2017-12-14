@@ -25,18 +25,12 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 public class Faltas {
     private final ObjectProperty<LocalDate> fecha;
     private final BooleanProperty retraso;
-    private final StringProperty prueba;
     private final IntegerProperty hora;
 
-    public Faltas(int anno,int dia,int mes, boolean retraso) {
+    public Faltas(int anno,int dia,int mes, boolean retraso,int hora) {
         this.fecha = new SimpleObjectProperty<LocalDate>(LocalDate.of(anno,dia,mes));
         this.retraso = new SimpleBooleanProperty (retraso);
-        this.prueba = new SimpleStringProperty ("Prueba");
-        this.hora= new SimpleIntegerProperty();
-    }
-
-    public StringProperty getPrueba() {
-        return prueba;
+        this.hora= new SimpleIntegerProperty(hora);
     }
     
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
@@ -62,6 +56,14 @@ public class Faltas {
 
     public void setRetraso(boolean retraso) {
         this.retraso.set(retraso);
+    }
+    
+    public int getHora(){
+        return this.hora.get();
+    }
+    
+    public IntegerProperty getHoraProperty(){
+        return hora;
     }
     
     
