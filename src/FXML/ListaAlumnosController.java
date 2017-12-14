@@ -33,11 +33,10 @@ import javafx.beans.property.StringProperty;
 public class ListaAlumnosController {
 
     @FXML
-    private TableView<Alumno> lista;
+    private TableView<Alumno> tablaAlumnos;
     @FXML
     private TableView<Faltas> tablaAsistencia;
     
-
     @FXML
     private TableColumn<Alumno,String> nombreC;
     @FXML
@@ -50,23 +49,7 @@ public class ListaAlumnosController {
     private TableColumn<Faltas,String> fechafalta;
     @FXML
     private TableColumn<Faltas,String> hora;
-    /*
-    @FXML
-    private Button AnnadirFalta;
 
-    @FXML
-    private Button BorrarFalta;
-
-    @FXML
-    private Button Retraso;
-
-    @FXML
-    private Button Quitarretraso;
-
-   
-
-    private int faltas2;
-    private int retrasos2;*/
     private MainApp mainApp;
 
     @FXML
@@ -77,9 +60,9 @@ public class ListaAlumnosController {
         cursoC.setCellValueFactory(cellData -> cellData.getValue().getCursoProperty());
         // Clear person details.
         //showFaltas(null);
-        lista.setItems(null);
+        tablaAlumnos.setItems(null);
         // Listen for selection changes and show the person details when changed.
-        lista.getSelectionModel().selectedItemProperty().addListener(
+        tablaAlumnos.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showFaltas(newValue));
 
     }
@@ -93,7 +76,7 @@ public class ListaAlumnosController {
 
         // Add observable list data to the table
         System.out.println(mainApp.getAlumnData().toString());
-        lista.setItems(mainApp.getAlumnData());
+        tablaAlumnos.setItems(mainApp.getAlumnData());
     }
     @FXML
     private void handleNewAlumno() {
@@ -103,11 +86,12 @@ public class ListaAlumnosController {
             mainApp.getAlumnData().add(tempAlumn);
         }
     }
+    
     @FXML
     private void handleDeleteAlumno() {
-        int selectedIndex = lista.getSelectionModel().getSelectedIndex();
+        int selectedIndex = tablaAlumnos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            lista.getItems().remove(selectedIndex);
+            tablaAlumnos.getItems().remove(selectedIndex);
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -120,30 +104,27 @@ public class ListaAlumnosController {
         }
     }
     
-/*
     @FXML
-    private void añadirFalta(ActionEvent event) {
+    private void handleNewFalta(ActionEvent event){
         
-        faltas2 = faltas2 + 1;
     }
-
+    
     @FXML
-    private void borrarFalta(ActionEvent event) {
-        faltas2 = faltas2 - 1;
-    }
+    private void handleDeleteFalta(ActionEvent event){int selectedIndex = tablaAlumnos.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            tablaAsistencia.getItems().remove(selectedIndex);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No seleccionado");
+            alert.setHeaderText("Falta/retraso no seleccionado");
+            alert.setContentText("Selecciona una falta/retraso de la tabla");
 
-    @FXML
-    private void añadirRetraso(ActionEvent event) {
-        retrasos2 = retrasos2 + 1;
+            alert.showAndWait();
+        }
+        
     }
-
-    @FXML
-    private void borrarRetraso(ActionEvent event) {
-       
-      retrasos2 = retrasos2 - 1;
-      
-    }
- */
 
     private void showFaltas(Alumno alumn) {
         
