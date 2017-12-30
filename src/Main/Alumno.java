@@ -17,17 +17,20 @@ import javafx.beans.property.StringProperty;
  */
 public class Alumno {
 
-    private final SimpleStringProperty nombre;
-    private final SimpleStringProperty apellido;
-    private final SimpleStringProperty curso;
+    private final StringProperty nombre;
+    private final StringProperty apellido;
+    private final StringProperty curso;
     private ArrayList<Faltas> faltas;
 
-    public Alumno(String nombre, String apellido, String curso, ArrayList<Faltas> faltas) {
-        this.nombre = new SimpleStringProperty (nombre);
+    public Alumno(String  nombre, String apellido, String curso) {
+        this.nombre =new SimpleStringProperty (nombre);
         this.apellido = new SimpleStringProperty (apellido);
-        this.curso =new SimpleStringProperty (curso);
-        this.faltas = faltas;
+        this.curso = new SimpleStringProperty (curso);
     }
+
+  
+
+   
 
   
 
