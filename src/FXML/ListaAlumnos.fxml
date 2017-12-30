@@ -6,20 +6,24 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="FXML.ListaAlumnosController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="FXML.ListaAlumnosController">
    <children>
-      <ListView layoutX="14.0" layoutY="4.0" prefHeight="388.0" prefWidth="193.0" />
-      <TableView layoutX="213.0" layoutY="14.0" prefHeight="222.0" prefWidth="381.0">
+      <TableView layoutX="236.0" layoutY="14.0" prefHeight="249.0" prefWidth="358.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Nombre" />
-          <TableColumn prefWidth="75.0" text="Retrasos" />
-            <TableColumn prefWidth="75.0" text="Faltas" />
+          <TableColumn prefWidth="75.0" text="retrasos" />
+            <TableColumn prefWidth="75.0" text="faltas" />
         </columns>
       </TableView>
-      <Button layoutX="213.0" layoutY="282.0" mnemonicParsing="false" text="Añadir falta" />
-      <Button layoutX="300.0" layoutY="282.0" mnemonicParsing="false" text="Borrar falta" />
-      <Button layoutX="388.0" layoutY="282.0" mnemonicParsing="false" text="Añadir retraso" />
-      <Button layoutX="496.0" layoutY="282.0" mnemonicParsing="false" text="Quitar retraso" />
+      <Button layoutX="301.0" layoutY="295.0" mnemonicParsing="false" text="Añadir falta" />
+      <Button layoutX="399.0" layoutY="295.0" mnemonicParsing="false" text="Borrar falta" />
+      <Button layoutX="294.0" layoutY="346.0" mnemonicParsing="false" text="Añadir retraso" />
+      <Button layoutX="392.0" layoutY="346.0" mnemonicParsing="false" text="Quitar retraso" />
+      <TableView layoutX="5.0" layoutY="15.0" prefHeight="374.0" prefWidth="228.0">
+         <columns>
+            <TableColumn prefWidth="75.0" text="nombre" />
+            <TableColumn prefWidth="75.0" text="apellidos" />
+            <TableColumn prefWidth="75.0" text="curso" />
+         </columns>
+      </TableView>
    </children>
 </AnchorPane>

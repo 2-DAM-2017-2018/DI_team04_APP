@@ -9,6 +9,7 @@ import Main.Alumno;
 import Main.MainApp;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.Action;
 
 /**
@@ -30,11 +32,11 @@ public class ListaAlumnosController {
     private TableView<Alumno> lista;
 
     @FXML
-    private TableColumn nombre;
+    private TableColumn <Alumno,String> nombreC;
     @FXML
-    private TableColumn apellidos;
+    private TableColumn <Alumno,String> apellidosC;
     @FXML
-    private TableColumn curso;
+    private TableColumn <Alumno,String> cursoC;
 
     @FXML
     private TableView<Alumno> tablaAsistencia;
@@ -57,7 +59,7 @@ public class ListaAlumnosController {
     @FXML
     private Button Quitarretraso;
 
-    private int posicionAlumnoTabla;
+   
 
     private int faltas2;
     private int retrasos2;
@@ -93,6 +95,17 @@ public class ListaAlumnosController {
     private void borrarRetraso(ActionEvent event) {
        
       retrasos2 = retrasos2 - 1;
+      
     }
+    ObservableList<Alumno> data=FXCollections.observableArrayList();
 
+   private void rellenar()
+   {
+       nombreC.setCellValueFactory(new PropertyValueFactory <Alumno,String>("nombreC"));
+       apellidosC.setCellValueFactory(new PropertyValueFactory <Alumno,String>("apellidosC"));
+       cursoC.setCellValueFactory(new PropertyValueFactory <Alumno,String>("cursoC"));
+       lista.setItems(null);
+   }
+
+ 
 }

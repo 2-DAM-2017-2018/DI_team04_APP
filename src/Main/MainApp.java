@@ -44,6 +44,7 @@ public class MainApp extends Application {
     /**
      * The data as an observable list of Persons.
      */
+    
     private ObservableList<Alumno> alumnData = FXCollections.observableArrayList();
 
     @Override
@@ -63,15 +64,15 @@ public class MainApp extends Application {
      * Constructor
      */
     public MainApp() {
-        // Add some sample data
-        alumnData.add(new Alumno("Hans", "Muster", "1A"));
-        alumnData.add(new Alumno("Ruth", "Mueller", "1A"));
-        alumnData.add(new Alumno("Heinz", "Kurz", "1B"));
-        alumnData.add(new Alumno("Cornelia", "Meier", "1B"));
-        alumnData.add(new Alumno("Werner", "Meyer", "2A"));
-        alumnData.add(new Alumno("Lydia", "Kunz", "2A"));
-        alumnData.add(new Alumno("Anna", "Best", "2B"));
-        alumnData.add(new Alumno("Stefan", "Meier", "2B"));
+        //Add some sample data
+       alumnData.add(new Alumno("Hans", "Muster", "1A"));
+       alumnData.add(new Alumno("Ruth", "Mueller", "1A"));
+       alumnData.add(new Alumno("Heinz", "Kurz", "1B"));
+       alumnData.add(new Alumno("Cornelia", "Meier", "1B"));
+       alumnData.add(new Alumno("Werner", "Meyer", "2A"));
+       alumnData.add(new Alumno("Lydia", "Kunz", "2A"));
+       alumnData.add(new Alumno("Anna", "Best", "2B"));
+       alumnData.add(new Alumno("Stefan", "Meier", "2B"));
     }
 
     /**

@@ -80,7 +80,7 @@ public class AñadirAlumnoController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-            alumn.setNombre(nombre.getText());
+          // alumn.setNombre(nombre.getText());
             alumn.setApellido(apellidos.getText());
             alumn.setCurso(curso.getText());
 
