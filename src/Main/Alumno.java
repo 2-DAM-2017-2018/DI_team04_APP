@@ -52,6 +52,10 @@ public class Alumno {
         return faltas;
     }
 
+    public Faltas getFalta(int id) {
+        return faltas.get(id);
+    }
+
     public StringProperty getNombreProperty() {
         return nombre;
     }
@@ -89,6 +93,10 @@ public class Alumno {
 
     public void setCurso(String curso) {
         this.curso.set(curso);
+    }
+    
+    public void borrarFalta(int id){
+        faltas.remove(id);
     }
 
 }

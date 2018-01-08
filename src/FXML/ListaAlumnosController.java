@@ -110,9 +110,13 @@ public class ListaAlumnosController {
     }
     
     @FXML
-    private void handleDeleteFalta(ActionEvent event){int selectedIndex = tablaAlumnos.getSelectionModel().getSelectedIndex();
+    private void handleCambiarRetraso(ActionEvent event){
+        int selectedIndex = tablaAsistencia.getSelectionModel().getSelectedIndex();
+        int selectedIndexAlumno = tablaAlumnos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
-            tablaAsistencia.getItems().remove(selectedIndex);
+            boolean valor = !tablaAlumnos.getSelectionModel().selectedItemProperty().get().getFalta(selectedIndex).isRetraso();
+            tablaAsistencia.getItems().get(selectedIndex).setRetraso(valor);
+            tablaAlumnos.getSelectionModel().selectedItemProperty().get().getFalta(selectedIndex).setRetraso(valor);
         } else {
             // Nothing selected.
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -123,7 +127,24 @@ public class ListaAlumnosController {
 
             alert.showAndWait();
         }
-        
+    }
+    
+    @FXML
+    private void handleDeleteFalta(ActionEvent event){
+        int selectedIndex = tablaAsistencia.getSelectionModel().getSelectedIndex();
+        if (selectedIndex >= 0) {
+            tablaAsistencia.getItems().remove(selectedIndex);
+            tablaAlumnos.getSelectionModel().selectedItemProperty().get().borrarFalta(selectedIndex);
+        } else {
+            // Nothing selected.
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.initOwner(mainApp.getPrimaryStage());
+            alert.setTitle("No seleccionado");
+            alert.setHeaderText("Falta/retraso no seleccionado");
+            alert.setContentText("Selecciona una falta/retraso de la tabla");
+
+            alert.showAndWait();
+        }
     }
 
     private void showFaltas(Alumno alumn) {
