@@ -9,6 +9,7 @@ package Main;
 import FXML.AñadirAlumnoController;
 import FXML.ListaAlumnosController;
 import FXML.AsistenciaRootLayoutController;
+import FXML.AñadirFaltaController;
 import java.io.File;
 import java.io.IOException;
 import java.util.prefs.Preferences;
@@ -39,6 +40,7 @@ public class MainApp extends Application {
   
     private Stage primaryStage;
     private BorderPane rootLayout;
+    
 
     /**
      * The data as an observable list of Persons.
@@ -277,5 +279,36 @@ public class MainApp extends Application {
     //                .showException(e);
         }
     }
-    
+     public boolean showFaltasEditDialog(Faltas falta) {
+        try {
+            // Load the fxml file and create a new stage for the popup dialog.
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AñadirFalta.fxml"));
+            AnchorPane page = (AnchorPane) loader.load();
+
+            // Create the dialog Stage.
+            Stage dialogStage = new Stage();
+            dialogStage.setTitle("Nueva falta");
+            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initOwner(primaryStage);
+            Scene scene = new Scene(page);
+            dialogStage.setScene(scene);
+
+            // Set the person into the controller.
+            AñadirFaltaController controller = loader.getController();
+            controller.setDialogStage(dialogStage);
+            controller.setPerson(falta);
+
+            // Set the dialog icon.
+    //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
+
+            // Show the dialog and wait until the user closes it
+            dialogStage.showAndWait();
+
+            return controller.isOkClicked();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
