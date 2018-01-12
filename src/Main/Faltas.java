@@ -16,6 +16,7 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.CheckBox;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
@@ -32,6 +33,8 @@ public class Faltas {
         this.retraso = new SimpleBooleanProperty (retraso);
         this.hora= new SimpleIntegerProperty(hora);
     }
+
+   
     
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public String getFecha() {
@@ -62,9 +65,15 @@ public class Faltas {
         return this.hora.get();
     }
     
+    public void setHora(int hora)
+    {
+        this.hora.set(hora);
+    }
     public IntegerProperty getHoraProperty(){
         return hora;
     }
+
+ 
     
     
 }

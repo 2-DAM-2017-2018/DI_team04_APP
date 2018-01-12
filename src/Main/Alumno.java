@@ -55,6 +55,10 @@ public class Alumno {
     public Faltas getFalta(int id) {
         return faltas.get(id);
     }
+    
+    public void setFalta(Faltas faltas) {
+        this.faltas.add(faltas);
+    }
 
     public StringProperty getNombreProperty() {
         return nombre;

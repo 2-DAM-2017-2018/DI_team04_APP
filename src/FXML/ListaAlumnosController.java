@@ -36,19 +36,19 @@ public class ListaAlumnosController {
     private TableView<Alumno> tablaAlumnos;
     @FXML
     private TableView<Faltas> tablaAsistencia;
-    
+
     @FXML
-    private TableColumn<Alumno,String> nombreC;
+    private TableColumn<Alumno, String> nombreC;
     @FXML
-    private TableColumn<Alumno,String> apellidosC;
+    private TableColumn<Alumno, String> apellidosC;
     @FXML
-    private TableColumn<Alumno,String> cursoC;
+    private TableColumn<Alumno, String> cursoC;
     @FXML
-    private TableColumn<Faltas,String> retrasos;
+    private TableColumn<Faltas, String> retrasos;
     @FXML
-    private TableColumn<Faltas,String> fechafalta;
+    private TableColumn<Faltas, String> fechafalta;
     @FXML
-    private TableColumn<Faltas,String> hora;
+    private TableColumn<Faltas, String> hora;
 
     private MainApp mainApp;
 
@@ -66,6 +66,7 @@ public class ListaAlumnosController {
                 (observable, oldValue, newValue) -> showFaltas(newValue));
 
     }
+
     /**
      * Is called by the main application to give a reference back to itself.
      *
@@ -78,15 +79,16 @@ public class ListaAlumnosController {
         System.out.println(mainApp.getAlumnData().toString());
         tablaAlumnos.setItems(mainApp.getAlumnData());
     }
+
     @FXML
     private void handleNewAlumno() {
-        Alumno tempAlumn = new Alumno("Nombre","Apellido","Curso");
+        Alumno tempAlumn = new Alumno("Nombre", "Apellido", "Curso");
         boolean okClicked = mainApp.showAlumnEditDialog(tempAlumn);
         if (okClicked) {
             mainApp.getAlumnData().add(tempAlumn);
         }
     }
-    
+
     @FXML
     private void handleDeleteAlumno() {
         int selectedIndex = tablaAlumnos.getSelectionModel().getSelectedIndex();
@@ -103,14 +105,20 @@ public class ListaAlumnosController {
             alert.showAndWait();
         }
     }
-    
+
     @FXML
-    private void handleNewFalta(ActionEvent event){
-        
+    private void handleNewFalta(ActionEvent event) {
+        int selectedIndexAlumno = tablaAlumnos.getSelectionModel().getSelectedIndex();
+        Faltas tempAlumn = new Faltas(1, 2, 3, false, 1);
+        boolean okClicked = mainApp.showFaltasEditDialog(tempAlumn);
+        if (okClicked) {
+            mainApp.getAlumnData().get(selectedIndexAlumno).setFalta(tempAlumn);
+        }
+
     }
-    
+
     @FXML
-    private void handleCambiarRetraso(ActionEvent event){
+    private void handleCambiarRetraso(ActionEvent event) {
         int selectedIndex = tablaAsistencia.getSelectionModel().getSelectedIndex();
         int selectedIndexAlumno = tablaAlumnos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
@@ -128,9 +136,9 @@ public class ListaAlumnosController {
             alert.showAndWait();
         }
     }
-    
+
     @FXML
-    private void handleDeleteFalta(ActionEvent event){
+    private void handleDeleteFalta(ActionEvent event) {
         int selectedIndex = tablaAsistencia.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             tablaAsistencia.getItems().remove(selectedIndex);
@@ -148,15 +156,15 @@ public class ListaAlumnosController {
     }
 
     private void showFaltas(Alumno alumn) {
-        
+
         ObservableList<Faltas> datos2 = FXCollections.observableArrayList();
 
-        for(int i=0;i<alumn.getFaltas().size();i++){
+        for (int i = 0; i < alumn.getFaltas().size(); i++) {
             datos2.add(alumn.getFaltas().get(i));
         }
-        
+
         tablaAsistencia.setItems(datos2);
-        
+
         if (alumn != null) {
             fechafalta.setCellValueFactory(cellData -> cellData.getValue().getFechaProperty().asString());
             retrasos.setCellValueFactory(cellData -> cellData.getValue().isRetrasoProperty().asString());
