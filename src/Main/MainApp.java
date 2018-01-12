@@ -237,7 +237,7 @@ public class MainApp extends Application {
            AlumnListWrapper wrapper = (AlumnListWrapper) um.unmarshal(file);
 
            alumnData.clear();
-           alumnData.addAll(wrapper.getPersons());
+           alumnData.addAll(wrapper.getAlumns());
 
            // Save the file path to the registry.
            setAlumnFilePath(file);
@@ -264,7 +264,7 @@ public class MainApp extends Application {
 
             // Wrapping our person data.
             AlumnListWrapper wrapper = new AlumnListWrapper();
-            wrapper.setPersons(alumnData);
+            wrapper.setAlumns(alumnData);
 
             // Marshalling and saving XML to the file.
             m.marshal(wrapper, file);

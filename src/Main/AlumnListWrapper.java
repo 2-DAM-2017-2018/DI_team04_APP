@@ -22,11 +22,11 @@ public class AlumnListWrapper {
     private List<Alumno> alumns;
 
     @XmlElement(name = "alumn")
-    public List<Alumno> getPersons() {
+    public List<Alumno> getAlumns() {
         return alumns;
     }
 
-    public void setPersons(List<Alumno> alumns) {
+    public void setAlumns(List<Alumno> alumns) {
         this.alumns = alumns;
     }
 }

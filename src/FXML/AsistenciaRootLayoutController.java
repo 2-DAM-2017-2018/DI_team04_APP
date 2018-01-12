@@ -68,9 +68,9 @@ public class AsistenciaRootLayoutController {
      */
     @FXML
     private void handleSave() {
-        File personFile = mainApp.getAlumnFilePath();
-        if (personFile != null) {
-            mainApp.saveAlumnDataToFile(personFile);
+        File alumnFile = mainApp.getAlumnFilePath();
+        if (alumnFile != null) {
+            mainApp.saveAlumnDataToFile(alumnFile);
         } else {
             handleSaveAs();
         }

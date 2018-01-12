@@ -94,7 +94,7 @@ public class Alumno {
     public void setCurso(String curso) {
         this.curso.set(curso);
     }
-    
+
     public void borrarFalta(int id){
         faltas.remove(id);
     }
