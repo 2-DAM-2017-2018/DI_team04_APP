@@ -31,10 +31,14 @@ public class Faltas {
     public Faltas(int anno,int dia,int mes, boolean retraso,int hora) {
         this.fecha = new SimpleObjectProperty<LocalDate>(LocalDate.of(anno,dia,mes));
         this.retraso = new SimpleBooleanProperty (retraso);
-        this.hora= new SimpleIntegerProperty(hora);
+        this.hora = new SimpleIntegerProperty(hora);
     }
-
-   
+    
+    public Faltas(){
+        fecha = new SimpleObjectProperty<LocalDate>(LocalDate.now());
+        retraso =  new SimpleBooleanProperty (true);
+        hora =  new SimpleIntegerProperty(5);
+    }
     
     @XmlJavaTypeAdapter(LocalDateAdapter.class)
     public String getFecha() {

@@ -37,8 +37,8 @@ public class Alumno {
         this.apellido = new SimpleStringProperty(apellido);
         this.curso = new SimpleStringProperty(curso);
         this.faltas = new ArrayList();
-        this.faltas.add(new Faltas(anno, mes, dia, true, hora));
-        this.faltas.add(new Faltas(anno, mes, dia+1, false, hora));
+        addFalta(new Faltas(anno, mes, dia+1, false, hora));
+        addFalta(new Faltas(anno, mes, dia, true, hora));
     }
 
     public Alumno() {
@@ -56,7 +56,7 @@ public class Alumno {
         return faltas.get(id);
     }
     
-    public void setFalta(Faltas faltas) {
+    public void addFalta(Faltas faltas) {
         this.faltas.add(faltas);
     }
 

@@ -279,7 +279,8 @@ public class MainApp extends Application {
     //                .showException(e);
         }
     }
-     public boolean showFaltasEditDialog(Faltas falta) {
+    
+    public boolean showFaltasEditDialog(Faltas falta) {
         try {
             // Load the fxml file and create a new stage for the popup dialog.
             FXMLLoader loader = new FXMLLoader();
@@ -297,10 +298,7 @@ public class MainApp extends Application {
             // Set the person into the controller.
             AñadirFaltaController controller = loader.getController();
             controller.setDialogStage(dialogStage);
-            controller.setPerson(falta);
-
-            // Set the dialog icon.
-    //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
+            controller.setFalta(falta);
 
             // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();

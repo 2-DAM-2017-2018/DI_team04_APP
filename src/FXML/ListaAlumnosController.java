@@ -76,7 +76,6 @@ public class ListaAlumnosController {
         this.mainApp = mainApp;
 
         // Add observable list data to the table
-        System.out.println(mainApp.getAlumnData().toString());
         tablaAlumnos.setItems(mainApp.getAlumnData());
     }
 
@@ -109,12 +108,12 @@ public class ListaAlumnosController {
     @FXML
     private void handleNewFalta(ActionEvent event) {
         int selectedIndexAlumno = tablaAlumnos.getSelectionModel().getSelectedIndex();
-        Faltas tempAlumn = new Faltas(1, 2, 3, false, 1);
-        boolean okClicked = mainApp.showFaltasEditDialog(tempAlumn);
+        Faltas tempFalta = new Faltas();
+        boolean okClicked = mainApp.showFaltasEditDialog(tempFalta);
         if (okClicked) {
-            mainApp.getAlumnData().get(selectedIndexAlumno).setFalta(tempAlumn);
+            mainApp.getAlumnData().get(selectedIndexAlumno).addFalta(tempFalta);
         }
-
+        showFaltas(mainApp.getAlumnData().get(selectedIndexAlumno));
     }
 
     @FXML

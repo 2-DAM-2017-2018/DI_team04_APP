@@ -27,28 +27,54 @@ public class AñadirFaltaController {
     @FXML
     private TextField hora;
     
-  
-    
     @FXML
     private CheckBox retraso;
 
     private Stage dialogStage;
-    
     private Faltas falta;
     private boolean okClicked = false;
 
-
-  
+    @FXML
+    private void initialize() { }
     
     
+    /**
+     * Sets the stage of this dialog.
+     * 
+     * @param dialogStage
+     */
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+    
+    /**
+     * Sets the alumn to be edited in the dialog.
+     * 
+     * @param alumn
+     */
+    public void setFalta(Faltas falta) {
+        this.falta = falta;
 
+        fecha.setText(falta.getFecha());
+        hora.setText(String.valueOf(falta.getHora()));
+        retraso.setSelected(falta.isRetraso());
+    }
+    
+    /**
+     * Returns true if the user clicked OK, false otherwise.
+     * 
+     * @return
+     */
+    public boolean isOkClicked() {
+        return okClicked;
+    }
+    
     /**
      * Called when the user clicks ok.
      */
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-          // alumn.setNombre(nombre.getText());
             falta.setFecha(DateUtil.parse(fecha.getText()));  
             falta.setHora(Integer.parseInt(hora.getText()));
             falta.setRetraso(retraso.isSelected());
@@ -77,8 +103,6 @@ public class AñadirFaltaController {
         if (fecha.getText() == null || fecha.getText().length() == 0) {
             errorMessage += "¡Fecha invalida!\n"; 
         }
-       
-        
         
         if (errorMessage.length() == 0) {
             return true;
@@ -94,20 +118,6 @@ public class AñadirFaltaController {
 
             return false;
         }
-    }
-     public void setDialogStage(Stage dialogStage) {
-        this.dialogStage = dialogStage;
-    }
-     
-     public void setPerson(Faltas falta) {
-        this.falta = falta;
-
-        //nombre.setText(alumn.getNombre());
-        //apellidos.setText(alumn.getApellido());
-        //curso.setText(alumn.getCurso());
-    }
-     public boolean isOkClicked() {
-        return okClicked;
     }
 }
 
