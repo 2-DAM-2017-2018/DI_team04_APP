@@ -10,10 +10,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -29,7 +31,7 @@ public class AñadirAlumnoController {
     @FXML
     private TextField apellidos;
     @FXML
-    private TextField curso;
+    private ChoiceBox cursochoice;
 
     private Stage dialogStage;
     private Alumno alumn;
@@ -62,7 +64,7 @@ public class AñadirAlumnoController {
 
         nombre.setText(alumn.getNombre());
         apellidos.setText(alumn.getApellido());
-        curso.setText(alumn.getCurso());
+        cursochoice.setItems(FXCollections.observableArrayList("1A","1B","1C","2A","2B","2C"));
     }
 
     /**
@@ -80,9 +82,9 @@ public class AñadirAlumnoController {
     @FXML
     private void handleOk() {
         if (isInputValid()) {
-          // alumn.setNombre(nombre.getText());
+            alumn.setFirstName(nombre.getText());
             alumn.setApellido(apellidos.getText());
-            alumn.setCurso(curso.getText());
+            alumn.setCurso(cursochoice.getValue().toString());
 
             okClicked = true;
             dialogStage.close();
@@ -111,7 +113,7 @@ public class AñadirAlumnoController {
         if (apellidos.getText() == null || apellidos.getText().length() == 0) {
             errorMessage += "¡Apellidos invalidos!\n"; 
         }
-        if (curso.getText() == null || curso.getText().length() == 0) {
+        if (cursochoice.getValue() == null) {
             errorMessage += "¡Curso invalido!\n"; 
         }
         
