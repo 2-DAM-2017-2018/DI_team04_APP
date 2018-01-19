@@ -215,12 +215,12 @@ public class MainApp extends Application {
             prefs.put("filePath", file.getPath());
 
             // Update the stage title.
-            primaryStage.setTitle("AddressApp - " + file.getName());
+            primaryStage.setTitle("AsistenciaFxml - " + file.getName());
         } else {
             prefs.remove("filePath");
 
             // Update the stage title.
-            primaryStage.setTitle("AddressApp");
+            primaryStage.setTitle("AsistenciaFxml");
         }
     } 
 

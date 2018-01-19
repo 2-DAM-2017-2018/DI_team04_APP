@@ -8,10 +8,10 @@ package FXML;
 import Main.Alumno;
 import Main.Faltas;
 import Util.DateUtil;
-import java.time.LocalDate;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -20,15 +20,15 @@ import javafx.stage.Stage;
  * @author icc
  */
 public class AñadirFaltaController {
-
-    @FXML
-    private TextField fecha;
     
     @FXML
     private TextField hora;
     
     @FXML
     private CheckBox retraso;
+    
+    @FXML
+    private DatePicker fechapicker;
 
     private Stage dialogStage;
     private Faltas falta;
@@ -55,7 +55,7 @@ public class AñadirFaltaController {
     public void setFalta(Faltas falta) {
         this.falta = falta;
 
-        fecha.setText(falta.getFecha());
+        fechapicker.setValue(DateUtil.parse(falta.getFecha()));
         hora.setText(String.valueOf(falta.getHora()));
         retraso.setSelected(falta.isRetraso());
     }
@@ -74,8 +74,8 @@ public class AñadirFaltaController {
      */
     @FXML
     private void handleOk() {
-        if (isInputValid()) {
-            falta.setFecha(DateUtil.parse(fecha.getText()));  
+        if (isInputValid()) {  
+            falta.setFecha(fechapicker.getValue());
             falta.setHora(Integer.parseInt(hora.getText()));
             falta.setRetraso(retraso.isSelected());
 
@@ -100,9 +100,9 @@ public class AñadirFaltaController {
     private boolean isInputValid() {
         String errorMessage = "";
 
-        if (fecha.getText() == null || fecha.getText().length() == 0) {
+        /*if (fecha.getText() == null || fecha.getText().length() == 0) {
             errorMessage += "¡Fecha invalida!\n"; 
-        }
+        }*/
         
         if (errorMessage.length() == 0) {
             return true;

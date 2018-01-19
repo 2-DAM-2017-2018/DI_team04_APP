@@ -22,14 +22,15 @@
         </rowConstraints>
          <children>
             <Label text="Fecha" GridPane.rowIndex="2" />
-            <TextField fx:id="fecha" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <CheckBox fx:id="retraso" mnemonicParsing="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Retraso?" GridPane.rowIndex="3" />
             <Label text="Hora" GridPane.rowIndex="1" />
             <TextField fx:id="hora" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <DatePicker fx:id="fechapicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
          </children>
       </GridPane>
       <Button layoutX="275.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleOk" text="OK" />
       <Button layoutX="331.0" layoutY="326.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <DatePicker />
    </children>
 </AnchorPane>

@@ -20,7 +20,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class AlumnListWrapper {
 
     private List<Alumno> alumns;
-
+    
     @XmlElement(name = "alumn")
     public List<Alumno> getAlumns() {
         return alumns;
