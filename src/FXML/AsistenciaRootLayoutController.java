@@ -25,7 +25,7 @@ public class AsistenciaRootLayoutController {
     private MainApp mainApp;
 
     /**
-     * Is called by the main application to give a reference back to itself.
+     * Es llamado por la aplicación principal para devolver una referencia a sí mismo.
      * 
      * @param mainApp
      */
@@ -34,7 +34,7 @@ public class AsistenciaRootLayoutController {
     }
 
     /**
-     * Creates an empty address book.
+     * Crea una archivo vacío
      */
     @FXML
     private void handleNew() {
@@ -43,28 +43,28 @@ public class AsistenciaRootLayoutController {
     }
 
     /**
-     * Opens a FileChooser to let the user select an address book to load.
+     * Abre el archivo seleccionado y lo cargar
      */
     @FXML
     private void handleOpen() {
         FileChooser fileChooser = new FileChooser();
 
-        // Set extension filter
+      
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter(
                 "XML files (*.xml)", "*.xml");
         fileChooser.getExtensionFilters().add(extFilter);
 
-        // Show save file dialog
+    
         File file = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 
-        if (file != null) {
+       if (file != null) {
             mainApp.loadAlumnDataFromFile(file);
         }
     }
 
     /**
-     * Saves the file to the person file that is currently open. If there is no
-     * open file, the "save as" dialog is shown.
+     * Guarda el archivo en el archivo  que está abierto actualmente. Si no hay
+     * abrir archivo, se muestra el cuadro de diálogo "guardar como".
      */
     @FXML
     private void handleSave() {
@@ -77,7 +77,7 @@ public class AsistenciaRootLayoutController {
     }
 
     /**
-     * Opens a FileChooser to let the user select a file to save to.
+     * Abre un FileChooser para permitir que el usuario seleccione un archivo para guardar.
      */
     @FXML
     private void handleSaveAs() {
@@ -113,7 +113,7 @@ public class AsistenciaRootLayoutController {
     }
 
     /**
-     * Closes the application.
+     * Cierra la aplicación
      */
     @FXML
     private void handleExit() {

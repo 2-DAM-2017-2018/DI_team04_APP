@@ -33,7 +33,8 @@ public class Faltas {
         this.retraso = new SimpleBooleanProperty (retraso);
         this.hora = new SimpleIntegerProperty(hora);
     }
-    
+         
+     
     public Faltas(){
         fecha = new SimpleObjectProperty<LocalDate>(LocalDate.now());
         retraso =  new SimpleBooleanProperty (true);
@@ -73,6 +74,8 @@ public class Faltas {
     {
         this.hora.set(hora);
     }
+    
+   
     public IntegerProperty getHoraProperty(){
         return hora;
     }

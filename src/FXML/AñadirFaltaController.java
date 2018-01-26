@@ -43,20 +43,17 @@ public class AñadirFaltaController {
     private void initialize() { }
     
     
-    /**
-     * Sets the stage of this dialog.
-     * 
-     * @param dialogStage
-     */
+   
     public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
     }
     
-    /**
-     * Sets the alumn to be edited in the dialog.
-     * 
-     * @param alumn
-     */
+  /**
+   * Metodo con el que se pone una fecha con un data picker
+   * Retraso true o false
+   * Hora de la falta o retraso
+   * @param falta 
+   */
     public void setFalta(Faltas falta) {
         this.falta = falta;
 
@@ -67,7 +64,7 @@ public class AñadirFaltaController {
     }
     
     /**
-     * Returns true if the user clicked OK, false otherwise.
+     * Devuelve verdadero si el usuario hizo clic en Aceptar, de lo contrario devuelve falso
      * 
      * @return
      */
@@ -76,7 +73,8 @@ public class AñadirFaltaController {
     }
     
     /**
-     * Called when the user clicks ok.
+     * Se llama cuando el usuario hace clic en Aceptar. Guarda una nueva falta.
+     * 
      */
     @FXML
     private void handleOk() {
@@ -90,7 +88,8 @@ public class AñadirFaltaController {
     }
 
     /**
-     * Called when the user clicks cancel.
+     * Se llama cuando el usuario hace clic en cancelar.
+     * Cancela la operación
      */
     @FXML
     private void handleCancel() {
@@ -98,9 +97,9 @@ public class AñadirFaltaController {
     }
 
     /**
-     * Validates the user input in the text fields.
      * 
-     * @return true if the input is valid
+     * Valida si todos los campos estan correctos.
+     * @return true si los campos son correctos
      */
     private boolean isInputValid() {
         String errorMessage = "";
@@ -112,7 +111,7 @@ public class AñadirFaltaController {
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            // Show the error message.
+           
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
             alert.setTitle("Campo(s) incorrecto(s)");

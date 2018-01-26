@@ -52,33 +52,40 @@ public class ListaAlumnosController {
 
     private MainApp mainApp;
 
+    
+      
+     /**
+      * Inicializa la tabla de alumnos
+      */
     @FXML
     private void initialize() {
-        // Initialize the alumn table
+    
         nombreC.setCellValueFactory(cellData -> cellData.getValue().getNombreProperty());
         apellidosC.setCellValueFactory(cellData -> cellData.getValue().getApellidoProperty());
         cursoC.setCellValueFactory(cellData -> cellData.getValue().getCursoProperty());
-        // Clear person details.
-        //showFaltas(null);
+      
         tablaAlumnos.setItems(null);
-        // Listen for selection changes and show the person details when changed.
+      
         tablaAlumnos.getSelectionModel().selectedItemProperty().addListener(
                 (observable, oldValue, newValue) -> showFaltas(newValue));
 
     }
 
     /**
-     * Is called by the main application to give a reference back to itself.
+     * 
+     * Es llamado por la aplicación principal para dar una referencia a sí mismo.
      *
      * @param mainApp
      */
     public void setMainApp(MainApp mainApp) {
         this.mainApp = mainApp;
 
-        // Add observable list data to the table
         tablaAlumnos.setItems(mainApp.getAlumnData());
     }
 
+    /**
+     * Agrega un nuevo alumno
+     */
     @FXML
     private void handleNewAlumno() {
         Alumno tempAlumn = new Alumno("Nombre", "Apellido", "Curso");
@@ -88,13 +95,16 @@ public class ListaAlumnosController {
         }
     }
 
+    /**
+     * Borrar un alumno
+     */
     @FXML
     private void handleDeleteAlumno() {
         int selectedIndex = tablaAlumnos.getSelectionModel().getSelectedIndex();
         if (selectedIndex >= 0) {
             tablaAlumnos.getItems().remove(selectedIndex);
         } else {
-            // Nothing selected.
+           
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.initOwner(mainApp.getPrimaryStage());
             alert.setTitle("No seleccionado");
@@ -105,6 +115,10 @@ public class ListaAlumnosController {
         }
     }
 
+    /**
+     * Crea una nueva falta para el alumno seleccionado
+     * @param event 
+     */
     @FXML
     private void handleNewFalta(ActionEvent event) {
         int selectedIndexAlumno = tablaAlumnos.getSelectionModel().getSelectedIndex();
@@ -115,6 +129,10 @@ public class ListaAlumnosController {
         }
         showFaltas(mainApp.getAlumnData().get(selectedIndexAlumno));
     }
+    /**
+     * Cambia el retraso a true o false 
+     * @param event 
+     */
 
     @FXML
     private void handleCambiarRetraso(ActionEvent event) {
@@ -136,6 +154,10 @@ public class ListaAlumnosController {
         }
     }
 
+    /**
+     * Borrar la falta seleccionada
+     * @param event 
+     */
     @FXML
     private void handleDeleteFalta(ActionEvent event) {
         int selectedIndex = tablaAsistencia.getSelectionModel().getSelectedIndex();
@@ -153,6 +175,10 @@ public class ListaAlumnosController {
             alert.showAndWait();
         }
     }
+    /**
+     * Muestra las falsta en la tabla asistencia
+     * @param alumn 
+     */
 
     private void showFaltas(Alumno alumn) {
 

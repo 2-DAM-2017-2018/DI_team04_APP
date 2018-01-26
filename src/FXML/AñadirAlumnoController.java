@@ -38,15 +38,15 @@ public class AñadirAlumnoController {
     private boolean okClicked = false;
 
     /**
-     * Initializes the controller class. This method is automatically called
-     * after the fxml file has been loaded.
+     * Inicializa la clase de controlador. Este método se llama automáticamente
+     * después de que el archivo fxml haya sido cargado.
      */
     @FXML
     private void initialize() {
     }
 
     /**
-     * Sets the stage of this dialog.
+     * Establece el escenario de este diálogo.
      * 
      * @param dialogStage
      */
@@ -55,7 +55,7 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Sets the alumn to be edited in the dialog.
+     * Establece el alumno que se editará en el cuadro de diálogo.
      * 
      * @param alumn
      */
@@ -68,7 +68,7 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Returns true if the user clicked OK, false otherwise.
+     * Returns verdadero si el usuario hizo clic en Aceptar, de lo contrario, en falso.
      * 
      * @return
      */
@@ -77,7 +77,7 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Called when the user clicks ok.
+     * Se llama cuando el usuario hace clic en Aceptar.
      */
     @FXML
     private void handleOk() {
@@ -92,7 +92,8 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Called when the user clicks cancel.
+     * Se llama cuando el usuario hace clic en cancelar.
+     * Cierra el escenario.
      */
     @FXML
     private void handleCancel() {
@@ -100,9 +101,9 @@ public class AñadirAlumnoController {
     }
 
     /**
-     * Validates the user input in the text fields.
+     *Valida la entrada del usuario en los campos de texto.
      * 
-     * @return true if the input is valid
+     * @return true si la entrada es válida
      */
     private boolean isInputValid() {
         String errorMessage = "";
@@ -120,7 +121,7 @@ public class AñadirAlumnoController {
         if (errorMessage.length() == 0) {
             return true;
         } else {
-            // Show the error message.
+           
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.initOwner(dialogStage);
             alert.setTitle("Campo(s) incorrecto(s)");
