@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 /**
  * FXML Controller class
  *
- * @author ITP1DAM
+ * @author PEPE E ISMAEL
  */
 public class AñadirAlumnoController {
 

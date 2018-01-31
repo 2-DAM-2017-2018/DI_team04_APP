@@ -16,7 +16,7 @@ import javafx.beans.property.StringProperty;
 
 /**
  *
- * @author ITP1DAM
+ * @author PEPE E ISMAEL
  */
 public class Alumno {
 

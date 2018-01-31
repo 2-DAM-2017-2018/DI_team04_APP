@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 /**
  *
- * @author ITP1DAM
+ * @author PEPE E ISMAEL
  */
 public class Faltas {
     private final ObjectProperty<LocalDate> fecha;

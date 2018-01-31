@@ -18,7 +18,7 @@ import javafx.stage.FileChooser;
 /**
  * FXML Controller class
  *
- * @author ITP1DAM
+ * @author PEPE E ISMAEL
  */
 public class AsistenciaRootLayoutController {
 
@@ -120,7 +120,5 @@ public class AsistenciaRootLayoutController {
         System.exit(0);
     }
     
-    /**
-    * Opens the birthday statistics.
-    */
+    
 }

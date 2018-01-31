@@ -34,20 +34,19 @@ import javax.xml.bind.Unmarshaller;
 
 /**
  *
- * @author franciscogonzalezdelvalle
+ * @author PEPE E ISMAEL
  */
 public class MainApp extends Application {
   
     private Stage primaryStage;
     private BorderPane rootLayout;
-    
-
-    /**
-     * The data as an observable list of Persons.
-     */
-    
     private ObservableList<Alumno> alumnData = FXCollections.observableArrayList();
 
+    
+    /**
+     * Llama al escenario principal
+     * @param primaryStage 
+     */
     @Override
     public void start(Stage primaryStage) {
         this.primaryStage = primaryStage;
@@ -62,7 +61,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Constructor
+     * Constructor por defecto 
      */
     public MainApp() {
         //Add some sample data
@@ -77,27 +76,28 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns the data as an observable list of Persons. 
+     * Devuelve los datos como un ObservableList de Alumnos.
      * @return
      */
     public ObservableList<Alumno> getAlumnData() {
         return alumnData;
     }
     /**
-     * Initializes the root layout.
+     * Inicializa el root layout.
      */
     public void initRootLayout() {
         try {
-             // Load root layout from fxml file.
+             // Carga el root layout del archivo fxml
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AsistenciaRootLayout.fxml"));
             rootLayout = (BorderPane) loader.load();
 
-            // Show the scene containing the root layout.
+          
+            //Muestra la escena que contiene el root layout
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
 
-            // Give the controller access to the main app.
+            //Da acceso al controlador a la aplicación principal
             AsistenciaRootLayoutController controller = loader.getController();
             controller.setMainApp(this);
 
@@ -106,26 +106,26 @@ public class MainApp extends Application {
             e.printStackTrace();
         }
 
-        // Try to load last opened person file.
+        // Intenta cargar el último archivo de alumnos abiero.
         File file = getAlumnFilePath();
         if (file != null) {
             loadAlumnDataFromFile(file);
         }
     }
     /**
-     * Shows the person overview inside the root layout.
+     *Muestra la vista general de la persona dentro del root layout
      */
     public void showAlumnOverview() {
         try {
-        // Load person overview.
+        // Carga el alumno overview.
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/ListaAlumnos.fxml"));
         AnchorPane listaAlumnos = (AnchorPane) loader.load();
 
-        // Set person overview into the center of root layout.
+        
         rootLayout.setCenter(listaAlumnos);
 
-        // Give the controller access to the main app.
+        // Da acceso al controlador a la aplicación principal
         ListaAlumnosController controller = loader.getController();
         controller.setMainApp(this);
 
@@ -134,22 +134,23 @@ public class MainApp extends Application {
         }
     }
 
-    /**
-     * Opens a dialog to edit details for the specified person. If the user
-     * clicks OK, the changes are saved into the provided person object and true
-     * is returned.
-     * 
-     * @param person the person object to be edited
-     * @return true if the user clicked OK, false otherwise.
-     */
+   /**
+    * Abre un cuadro de diálogo para editar los detalles del alumno especificado. 
+    * Si el usuario hace clic en Aceptar, los cambios se guardan en el objeto 
+    * de alumno proporcionado y se devuelve verdadero.
+    * @param alumn el alumno que será editado
+    * @return Devuelve true si el usuario hace clic en OK o fase si es al contrario
+    */
+   
     public boolean showAlumnEditDialog(Alumno alumn) {
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
+             
+            // Carga el archivo fxml y crea un nuevo escenario.
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AñadirAlumno.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
+            // Crea el dialog Stage.
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Editar alumno");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -157,15 +158,13 @@ public class MainApp extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
+            // Set del alumno en el controlador controller.
             AñadirAlumnoController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setPerson(alumn);
 
-            // Set the dialog icon.
-    //        dialogStage.getIcons().add(new Image("file:resources/images/edit.png"));
-
-            // Show the dialog and wait until the user closes it
+            // Muestra el diolog y espera hasta que el usuario lo cierra
+            
             dialogStage.showAndWait();
 
             return controller.isOkClicked();
@@ -175,7 +174,7 @@ public class MainApp extends Application {
         }
     }
     /**
-     * Returns the main stage.
+     * Devuelve el escenario principal.
      * @return
      */
     public Stage getPrimaryStage() {
@@ -187,9 +186,9 @@ public class MainApp extends Application {
     }
 
     /**
-     * Returns the person file preference, i.e. the file that was last opened.
-     * The preference is read from the OS specific registry. If no such
-     * preference can be found, null is returned.
+     * Devuelve el ultimo archivo abierto.
+     * Lee el preferences del registro específico del sistema operativo, 
+     * si no se puede encontrar dicha preferencia devuelve null.
      * 
      * @return
      */
@@ -204,10 +203,10 @@ public class MainApp extends Application {
     }
 
     /**
-     * Sets the file path of the currently loaded file. The path is persisted in
-     * the OS specific registry.
+     * Establece la ruta de archivo del archivo cargado actualmente. 
+     * La ruta se conserva en el registro específico del sistema operativo.
      * 
-     * @param file the file or null to remove the path
+     * @param file el archivo o null para eliminar la ruta
      */
     public void setAlumnFilePath(File file) {
         Preferences prefs = Preferences.userNodeForPackage(MainApp.class);
@@ -225,8 +224,7 @@ public class MainApp extends Application {
     } 
 
     /**
-    * Loads person data from the specified file. The current person data will
-    * be replaced.
+    * Carga datos de personas del archivo especificado. La información actual de la persona
     * 
     * @param file
     */
@@ -253,7 +251,7 @@ public class MainApp extends Application {
     }
 
     /**
-     * Saves the current person data to the specified file.
+     * Guarda los datos de la persona actual en el archivo especificado.
      * 
      * @param file
      */
@@ -264,14 +262,11 @@ public class MainApp extends Application {
             Marshaller m = context.createMarshaller();
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
-            // Wrapping our person data.
             AlumnListWrapper wrapper = new AlumnListWrapper();
             wrapper.setAlumns(alumnData);
 
-            // Marshalling and saving XML to the file.
             m.marshal(wrapper, file);
 
-            // Save the file path to the registry.
             setAlumnFilePath(file);
         } catch (Exception e) { // catches ANY exception
     //                Dialogs.create().title("Error")
@@ -279,15 +274,21 @@ public class MainApp extends Application {
     //                .showException(e);
         }
     }
-    
+    /**
+     * Carga el archivo xml y crea un nuevo escenario. 
+     * Establecer al alumno en el controlador.
+     * Muestra el dialog y espera hasta que el usuario lo cierra.
+     * @param falta
+     * @return 
+     */
     public boolean showFaltasEditDialog(Faltas falta) {
         try {
-            // Load the fxml file and create a new stage for the popup dialog.
+           
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(MainApp.class.getClassLoader().getResource("FXML/AñadirFalta.fxml"));
             AnchorPane page = (AnchorPane) loader.load();
 
-            // Create the dialog Stage.
+            
             Stage dialogStage = new Stage();
             dialogStage.setTitle("Nueva falta");
             dialogStage.initModality(Modality.WINDOW_MODAL);
@@ -295,12 +296,11 @@ public class MainApp extends Application {
             Scene scene = new Scene(page);
             dialogStage.setScene(scene);
 
-            // Set the person into the controller.
+            
             AñadirFaltaController controller = loader.getController();
             controller.setDialogStage(dialogStage);
             controller.setFalta(falta);
 
-            // Show the dialog and wait until the user closes it
             dialogStage.showAndWait();
 
             return controller.isOkClicked();

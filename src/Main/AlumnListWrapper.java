@@ -11,10 +11,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- * Helper class to wrap a list of alumns. This is used for saving the
- list of alumns to XML.
  * 
- * @author Marco Jakob
+ * Esto se usa para guardar la lista de los alumnos en un XML
+ * 
+ * 
+ * @author PEPE E ISMAEL
  */
 @XmlRootElement(name = "alumns")
 public class AlumnListWrapper {

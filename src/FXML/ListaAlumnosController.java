@@ -28,7 +28,7 @@ import javafx.beans.property.StringProperty;
 /**
  * FXML Controller class
  *
- * @author icc
+ * @author PEPE E ISMAEL
  */
 public class ListaAlumnosController {
 
