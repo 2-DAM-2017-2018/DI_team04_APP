@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -28,9 +29,9 @@
                               </TableView>
                            </children>
                         </AnchorPane>
-                      <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="36.0" prefWidth="160.0">
+                      <AnchorPane id="AnchorPane" maxHeight="-Infinity" minHeight="-Infinity" minWidth="0.0" prefHeight="36.0" prefWidth="160.0">
                            <children>
-                              <GridPane prefHeight="36.0" prefWidth="227.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <GridPane id="grid" prefHeight="36.0" prefWidth="227.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -49,7 +50,7 @@
                   </SplitPane>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="398.0" prefWidth="448.0">
+            <AnchorPane id="AnchorPane" prefHeight="398.0" prefWidth="448.0">
                <children>
                   <SplitPane dividerPositions="0.6371191135734072" prefHeight="398.0" prefWidth="296.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
@@ -70,9 +71,9 @@
                               </TableView>
                            </children>
                         </AnchorPane>
-                      <AnchorPane maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="128.0">
+                      <AnchorPane id="AnchorPane" maxWidth="-Infinity" minHeight="0.0" minWidth="-Infinity" prefHeight="160.0" prefWidth="128.0">
                            <children>
-                              <GridPane prefHeight="396.0" prefWidth="128.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <GridPane id="grid" prefHeight="396.0" prefWidth="128.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <columnConstraints>
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
@@ -96,4 +97,8 @@
         </items>
       </SplitPane>
    </children>
+   <stylesheets>
+      <URL value="@css.css" />
+      <URL value="@css1.css" />
+   </stylesheets>
 </AnchorPane>

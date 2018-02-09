@@ -1,0 +1,33 @@
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "Segoe UI Semibold";
+    -fx-text-fill: red;
+    -fx-opacity: 0.6;
+}
+
+.button {
+    -fx-border-color: #FF8C00;
+    -fx-border-width: 2;
+    -fx-background-radius: 0;
+    -fx-background-color: #F0E68C;
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-font-size: 9pt;
+    -fx-text-fill:red;
+}
+
+
+
+
+
+.table-view {
+    -fx-base:#FFDAB9;
+    -fx-control-inner-background: #FFDAB9;
+    -fx-background-color:#FFDAB9;
+    -fx-table-cell-border-color: transparent;
+    -fx-table-header-border-color: transparent;
+    -fx-padding: 5;
+}
+
+#AnchorPane{
+    -fx-background-color:#FFDAB9;
+}
